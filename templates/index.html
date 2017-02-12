@@ -1,25 +1,12 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="ISO-8859-1">
-<title>Build-A-Blog!</title>
-
-<link rel="stylesheet" href="/styles/main_style.css">
-
-</head>
-<body>
-	<div id="links_container" class="">
-	<p>Links</p>
+{% extends "base.html" %}
+{% block blog %}
+<div id="blog_container" class="">
+	<div id="blog_heading_container" class="">
+	<p>Heading</p>
 	</div>
-	
-	<div id="blog_container" class="">
-		<div id="blog_heading_container" class="">
-		<p>Heading</p>
-		</div>
 		
-		<div id="blog_content_container" class="">
-		<p>Blog Content</p>
-		</div>
+	<div id="blog_content_container" class="">
+	<p>Blog Content</p>
 	</div>
-</body>
-</html>
+</div>
+{% endblock %}

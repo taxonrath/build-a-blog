@@ -6,7 +6,6 @@
 	Silk: 		#DCD0C0
 	Paper:		#F4F4F4
 	Charcoal:	#373737
-
 */
 
 :root {
@@ -22,13 +21,15 @@ body {
 	max-width: 90%;
 	margin: 0 auto;
 	background-color: var(--paper);
+	color: var(--charcoal);
 	font-family: sans-serif;
-	color: var(--charcoal)
 }
+
 
 p {
 	margin: 0 0;
 }
+
 
 #links_container {
 	text-align: center;
@@ -37,22 +38,42 @@ p {
 	color: var(--pale_gold);
 }
 
+#title_container {
+	text-align: center;
+	background-color: var(--pale_gold);
+}
+
+#blog_container {
+	max-width: 80%;
+	margin: 0 auto;
+}
+
 #blog_heading_container {
 	text-align: center;
 	font-weight: bold;
 	background-color: var(--pale_gold);
+	text-transform: capitalize;
 }
 
 #blog_content_container {
 	margin: 0 auto;
-	max-width: 80%;
 	text-align: justify;
 	background-color: var(--silk);
 	
+}
+
+.no_marpad {
+	margin: 0 0;
+	padding: 0 0;
 }
 
 .test_border {
 	border-weight: 1px;
 	border-color: red;
 	border-style: solid;
+}
+
+.title {
+	margin: 0 0;
+	padding-bottom: 12px;
 }
