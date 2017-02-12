@@ -48,10 +48,16 @@ class Handler(webapp2.RequestHandler):
         self.write(self.render_str(template, **kw))
         
         
-class MainHandler(Handler):
+class Index(Handler):
     def get(self):
         self.render("index.html")
+        
+        
+class NewBlog(Handler):
+    def get(self):
+        self.render("new_blog_form.html")
 
 app = webapp2.WSGIApplication([
-    ('/', MainHandler)
+    ('/', Index),
+    ('/new_blog', NewBlog)
 ], debug=True)

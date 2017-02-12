@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block new_blog_form %}
+
+<div class="blog_container new_blog_form">
+<form action="post">
+<table class=new_blog_table>
+<tr><td class="blog_heading_container">
+<label>Blog Title:</label><br><input type="text" name="blog_title">
+</td></tr>
+<tr><td class="new_blog_content_container">
+<label>Blog Content:</label><br><textarea name="blog_content"></textarea>
+<br>
+<input type="submit" value="Create Blog!">
+</td></tr>
+
+</table>
+</form>
+</div>
+{% endblock %}

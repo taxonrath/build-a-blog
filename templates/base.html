@@ -4,16 +4,19 @@
 <meta charset="ISO-8859-1">
 <title>Build-A-Blog!</title>
 
+<link rel="stylesheet" href="/styles/reset.css">
 <link rel="stylesheet" href="/styles/main_style.css">
 
 </head>
 <body>
 	<div id="links_container" class="">
-	<p>Links</p>
+	<a href="/" class="nav_links">Blog Home</a>&#8226<a href="/new_blog" class="nav_links">New Blog</a>
 	</div>
 	<div id="title_container">
 	<h1 class="title">BUILD-A-BLOG!</h1>
 	</div>
+	{% block new_blog_form %}
+	{% endblock %}
 	
 	{% block blog %}
 	{% endblock %}
