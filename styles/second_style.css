@@ -18,7 +18,7 @@
 body {
 	width: 90%;
 	background-color: var(--paper);
-	color: var(--charcoal;);
+	color: var(--charcoal);
 	margin: 0 auto;
 	font-family: sans-serif;
 }
@@ -38,15 +38,70 @@ h1 {
 	padding: 5px 0px;
 }
 
+.nav_links {
+	text-decoration: none;
+	padding: 0 9px;
+	color: var(--charcoal);
+}
+
 #title_container {
 	text-align: center;
+	padding: 12px 0;
+}
+
+.title {
+	font-weight: bold;
 }
 
 .blog_container {
 	background-color: var(--silk);
-	padding-bottom:
+	padding-top: 5px;
+	padding-bottom: 15px;
+	margin: 18px 0;
+	border-bottom: 4px solid var(--charcoal);
 }
 
 .blog_heading_container {
 	text-align: center;
+
+}
+
+.blog_heading_container p a {
+	text-decoration: none;
+	font-weight: bold;
+	color: var(--charcoal);
+}
+
+.blog_content_container {
+	margin: 0 auto;
+	text-align: justify;
+	background-color: var(--silk);
+	padding: 0px 15px;
+}
+
+table tr td.new_blog_content_container textarea {
+	width: 80%;
+	height: 600px;
+}
+
+.new_blog_form {
+	text-align: center;
+}
+
+.new_blog_table {
+	margin: 0 auto;
+	width: 100%;
+}
+
+.no_marpad {
+	margin: 0 0;
+	padding: 0 0;
+}
+
+.new_blog_content_container {
+	margin: 0 auto;
+	text-align: center;
+	background-color: var(--silk);
+	padding-top: 12px;
+	padding-bottom: 12px;
 }
