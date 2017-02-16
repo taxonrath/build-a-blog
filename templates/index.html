@@ -1,13 +1,30 @@
 {% extends "base.html" %}
 
+
 {% block blog %}
-<div class="blog_container" class="">
-	<div class="blog_heading_container" class="">
-	<p>Heading</p>
-	</div>
-		
-	<div class="blog_content_container" class="">
-	<p>Blog Content</p>
-	</div>
-</div>
+
+	{% if blogs %}
+	{% for blog in blogs %}
+
+		<div class="blog_container" class="">
+			<div class="blog_heading_container" class="">
+			<p><a href='/blog/{{ blog.key().id() }}'>{{ blog.blog_title }}</a></p>
+			</div>
+				
+			<div class="blog_content_container" class="">
+			<p>{{ blog.blog_content }}</p>
+			</div>
+		</div>
+	{% endfor %}
+	{% else %}
+		<div class="blog_container" class="">
+			<div class="blog_heading_container" class="">
+			<p>{{ blog.blog_title }}<span class='error'>{{ errors.no_blog }}</span></p>
+			</div>
+				
+			<div class="blog_content_container" class="">
+			<p>{{ blog.blog_content }}</p>
+			</div>
+		</div>
+	{% endif %}	
 {% endblock %}

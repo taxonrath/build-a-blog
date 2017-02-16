@@ -59,6 +59,19 @@ td {
 	border-color: var(--charcoal);
 }
 
+#foot_bar {
+	background-color: var(--pale_gold);
+	box-sizing: border-box;
+	height: 89px;
+	
+	border-top-style: solid;
+	border-top-width: 7px;
+	
+	border-bottom-style: solid;
+	border-bottom-width: 26px;
+	border-color: var(--charcoal)
+}
+
 .nav_links {
 	color: var(--pale_gold);
 	padding-left: 8px;
@@ -128,4 +141,9 @@ table tr td.new_blog_content_container textarea {
 	font-weight: bold;
 	padding-top: 10px;
 	padding-bottom: 10px;
+}
+
+.error {
+	color: #FF0000;
+	text-transform: none;
 }

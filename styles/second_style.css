@@ -1,0 +1,52 @@
+@CHARSET "ISO-8859-1";
+
+/*
+*** COLOR PALETTE ***
+	Pale Gold:	#C0B283
+	Silk: 		#DCD0C0
+	Paper:		#F4F4F4
+	Charcoal:	#373737
+*/
+
+:root {
+	--pale_gold: #C0B283;
+	--silk: #DCD0C0;
+	--paper: #F4F4F4;
+	--charcoal: #373737;
+}
+
+body {
+	width: 90%;
+	background-color: var(--paper);
+	color: var(--charcoal;);
+	margin: 0 auto;
+	font-family: sans-serif;
+}
+
+h1 {
+	font-size: 36px;
+}
+
+.error {
+	color: #FF0000;
+}
+
+#links_container {
+	text-align: center;
+	text-transform: lowercase;
+	font-size: 18px;
+	padding: 5px 0px;
+}
+
+#title_container {
+	text-align: center;
+}
+
+.blog_container {
+	background-color: var(--silk);
+	padding-bottom:
+}
+
+.blog_heading_container {
+	text-align: center;
+}

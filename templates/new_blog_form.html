@@ -3,13 +3,18 @@
 {% block new_blog_form %}
 
 <div class="blog_container new_blog_form">
-<form action="post">
+
+<form method="post">
 <table class=new_blog_table>
 <tr><td class="blog_heading_container">
-<label>Blog Title:</label><br><input type="text" name="blog_title">
+	<label>Blog Title:</label><br>
+	<span class='error'>{{ error.title_error }}</span><br>
+	<input type="text" name="blog_title" value='{{ blog_title }}'> 
 </td></tr>
 <tr><td class="new_blog_content_container">
-<label>Blog Content:</label><br><textarea name="blog_content"></textarea>
+	<label>Blog Content:</label><br>
+	<span class='error'>{{ error.content_error }}</span><br>
+	<textarea name="blog_content" value='{{ blog_content }}'></textarea>
 <br>
 <input type="submit" value="Create Blog!">
 </td></tr>

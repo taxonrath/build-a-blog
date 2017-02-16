@@ -23,9 +23,9 @@ template_dir = os.path.join(os.path.dirname(__file__), 'templates')
 jinja_env = jinja2.Environment(loader = jinja2.FileSystemLoader(template_dir),
                                autoescape = True)
 
-class Database(db.Model):
-    title = db.StringProperty(required = True)
-    art = db.TextProperty(required = True)
+class Blog(db.Model):
+    blog_title = db.StringProperty(required = True)
+    blog_content = db.TextProperty(required = True)
     created = db.DateTimeProperty(auto_now_add = True)
     
     # ADD TO DATABASE EXAMPLE
@@ -48,16 +48,70 @@ class Handler(webapp2.RequestHandler):
         self.write(self.render_str(template, **kw))
         
         
-class Index(Handler):
+class Index(Handler):       
+        
     def get(self):
-        self.render("index.html")
+        # TODO: Extract all blog posts to a list, ordered by date created, most recent first.
+        blogs = db.GqlQuery("SELECT * FROM Blog ORDER BY created DESC LIMIT 5")
+        # TODO: First five blog posts need to be listed here, most recent first.        
+        #self.render("index.html", blogs)
+        
+        t = jinja_env.get_template('index.html')
+        content = t.render(blogs = blogs)
+        self.write(content)
         
         
 class NewBlog(Handler):
     def get(self):
-        self.render("new_blog_form.html")
+        error = ''
+        t = jinja_env.get_template('new_blog_form.html')
+        content = t.render(error = error)
+        self.write(content)
+        
+    def post(self):
+        error = {}
+        is_errored = False
+        
+        
+        blog_title = self.request.get("blog_title")
+        blog_content = self.request.get("blog_content")
+        
+        if (blog_title and blog_content):
+            blog = Blog(blog_title = blog_title, blog_content = blog_content)
+            blog.put()
+            self.redirect('/blog/%s' % blog.key().id())
+        else:
+            is_errored = True
+            if not blog_title:
+                error['title_error'] = 'You can ride through the web on a blog with no name, but not here.'
+            if not blog_content:
+                error['content_error'] = 'No one wants an empty package, write something!'
+                
+            t = jinja_env.get_template('new_blog_form.html')
+            content = t.render(error = error, blog_title = blog_title, blog_content = blog_content)
+            self.write(content)
+        
 
+class ViewPostHandler(Handler):
+    def get(self, id):
+        id = int(id)
+        errors = {}
+        blog = Blog.get_by_id(id)
+
+        
+        if not blog:
+            errors['no_blog'] = 'There is no blog by that ID.'
+            
+        t = jinja_env.get_template('index.html') 
+        content = t.render(errors = errors, blog = blog)
+        self.write(content)
+        
+        
+    
+    
+    
 app = webapp2.WSGIApplication([
     ('/', Index),
-    ('/new_blog', NewBlog)
+    ('/new_blog', NewBlog),
+    webapp2.Route('/blog/<id:\d+>', ViewPostHandler)
 ], debug=True)
